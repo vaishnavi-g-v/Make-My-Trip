@@ -16,10 +16,6 @@ vector<string> simple_tokenizer(string s)
         words.push_back(string(word));
     }
 
-    // for(auto x : words){
-    //     cout << x << endl;
-    // }
-
     return move(words);
 
 }
@@ -30,6 +26,9 @@ class Date {
         int day;
         int month;
         int year;
+        int hour;
+        int min;
+        int sec;
 
         int getMonth(string m){
             if(m == "Jan") return 1;
@@ -64,12 +63,24 @@ class Date {
             day = atoi(words[2].c_str());
             year = atoi(words[4].c_str());
 
+            string t = words[3];
+            hour = atoi(t.substr(0,2).c_str());
+            min = atoi(t.substr(3,2).c_str());
+            sec = atoi(t.substr(6,2).c_str());
+
         }
 
         void getDate(){
             cout << "day: " << day << endl;
             cout << "month: " << month << endl;
             cout << "year: " << year << endl;
+        }
+
+        void getTime(){
+            cout << "hour: " << hour << endl;
+            cout << "minute: " << min << endl;
+            cout << "second: " << sec << endl;
+
         }
 };
 
@@ -119,10 +130,18 @@ class Transport {
     protected:
         string from;
         string to;
+        Date departureDate;
+        Date arrivalDate;
 
 
         virtual void printType() = 0;
-        virtual vector<string> getFields() = 0;
+        // virtual vector<string> getFields() = 0;
+
+        vector<string> getFields(){
+            
+        }
+
+
         
     friend class Booking;
 
@@ -158,6 +177,7 @@ class Train : public Transport {
 };
 
 class Cab : public Transport {
+
     void printType(){cout << "Cab";}
     vector<string> getFields(){
 
