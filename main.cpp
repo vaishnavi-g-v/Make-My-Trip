@@ -2,8 +2,76 @@
 // currently using stl library, will replace with self coded vector
 #include <bits/stdc++.h>
 #include <string>
+#include <ctime>
 
 using namespace std;
+
+
+vector<string> simple_tokenizer(string s)
+{
+    stringstream ss(s);
+    string word;
+    vector<string> words;
+    while (ss >> word) {
+        words.push_back(string(word));
+    }
+
+    // for(auto x : words){
+    //     cout << x << endl;
+    // }
+
+    return move(words);
+
+}
+
+class Date {
+    private:
+        string dayOfWeek;
+        int day;
+        int month;
+        int year;
+
+        int getMonth(string m){
+            if(m == "Jan") return 1;
+            if(m == "Feb") return 2;
+            if(m == "Mar") return 3;
+            if(m == "Apr") return 4;
+            if(m == "May") return 5;
+            if(m == "Jun") return 6;
+            if(m == "Jul") return 7;
+            if(m == "Aug") return 8;
+            if(m == "Sep") return 9;
+            if(m == "Oct") return 10;
+            if(m == "Nov") return 11;
+            if(m == "Dec") return 12;
+
+            return 0;
+        }
+
+    public:
+        Date() {
+            time_t now = time(0);
+            char* date_time = ctime(&now);
+            string d(date_time);
+            vector<string> words = simple_tokenizer(d);
+
+            // for(auto x : words){
+            //     cout << x << endl;
+            // }
+
+            dayOfWeek = words[0];
+            month = getMonth(words[1]);
+            day = atoi(words[2].c_str());
+            year = atoi(words[4].c_str());
+
+        }
+
+        void getDate(){
+            cout << "day: " << day << endl;
+            cout << "month: " << month << endl;
+            cout << "year: " << year << endl;
+        }
+};
 
 class Booking;
 
@@ -14,6 +82,7 @@ enum Gender {
 enum TravellerType {
     adult, child, infant
 };
+
 
 class Traveller {
     private:
@@ -46,7 +115,12 @@ class Transport {
         // vector<string> getDetails(){}
         // void book(){}
 
+
     protected:
+        string from;
+        string to;
+
+
         virtual void printType() = 0;
         virtual vector<string> getFields() = 0;
         
@@ -153,7 +227,8 @@ class Booking {
         }
 
         void fieldsForm(){
-
+            // Need to get the fields required to be filled by the user
+            
         }
 };
 
