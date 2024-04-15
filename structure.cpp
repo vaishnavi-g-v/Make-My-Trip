@@ -64,6 +64,16 @@ class Train : Transport {
     */
 };
 
+class Hop {
+    // hop contains details and filters applied to a hop, holding all the transport instances relavent to the given details;
+    // it will hold the initial details (to, from, departure date) and all the instances coinciding with these details
+
+    // it will return references to these transport instances during any filtering process
+
+    // QUESTION: can an instance occur twice -- not possible -- even if departure date is the same, the departure city will vary
+    // so don't have to worry about holding duplicate instances in different hops
+};
+
 class Trip {
     // contains a list of hops
     // each hop can be a different transport

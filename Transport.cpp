@@ -31,18 +31,33 @@ class Transport {
     protected:
         string from;
         string to;
+        Date departureDate;
+        Date arrivalDate;
+        Time departureTime;
+        Time arrivalTime;
+        float pricePerSeat;         // automatically for adult, if any other, discounts can be applied
 
 };
 
-class Flight : Transport {
+// either each flight instance can be further divided by the class it has OR we can keep track of how many seats per class
+// maybe present all classes and then ask to choose?? 
+enum FlightClass {economy, premiumEconomy, business};
+
+class Flight : public Transport {
     /*
         attributes:
             airline
             classes -- static
     
     */
+    protected:
+        string airline;
+        FlightClass c;
+   
 
 };
+
+
 class Bus : Transport {
     /*
     attributes:
@@ -50,7 +65,13 @@ class Bus : Transport {
         Non-stop
 
     */
+    protected:
+        bool AC;            // true if it is an AC bus
+        bool nonStop;       // true if the bus goes non stop
 };
+
+enum TrainClass {tierOne, tierTwo, tierThree, sleeper};
+
 class Train : Transport {
     /*
     attributes:
@@ -58,6 +79,9 @@ class Train : Transport {
         name
         train no ??
 
-    
     */
+    string name;
+    int trainNo;
+
+
 };
