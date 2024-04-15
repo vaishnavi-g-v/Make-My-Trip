@@ -28,7 +28,7 @@ class Transport {
     common functionalities:
         fetching details of each instance -- details vary per instance -- create a templatized struct for that?? 
         adding instance to db
-        on booking, instance data needs to be updated -- whichever is necessary
+        update valuess
 
 
 
@@ -72,7 +72,7 @@ class Trip {
 
 /*
     functionalities:
-        
+        on booking, hops/instances data needs to be updated -- whichever is necessary
 
 */
 
