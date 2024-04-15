@@ -34,7 +34,6 @@ class Transport {
 
 */
 
-
 };
 
 class Flight : Transport {
@@ -71,7 +70,11 @@ class Trip {
     
     // needs to store the searched instances for a particular hop
 
-    // functionalities for a trip
+/*
+    functionalities:
+        
+
+*/
 
 
 };
