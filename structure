@@ -1,0 +1,21 @@
+For user: FIRST PRIORITY
+each trip is made up multiple hops
+each hop is a particular instance of a transport
+each booking consists of one trip and other passenger details
+one booking is confirmed, trip details are added to a booking table along with passenger details
+Any changes required from making a booking to the trasport tables must be taken care of
+
+For Agency Manager: LAST PRIORITY
+Need to be able to add new types of transport options into tables
+Need to delete transport options from tables 
+BUT only those of that particular Airline/Agency
+
+for each hop
+- initial details needed (compulsory) : from, to, departure data, transport type preferance(default = none)
+- can filter by : agencies/arilines/providers, class, price, transport type 
+- choose a particular instance -- added to overall trip
+
+
+need to decide tables and attributes:
+- one table per type of transport - main table and related tables
+
